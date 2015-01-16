@@ -1,0 +1,17 @@
+---
+- name: Ensure system is x86_64
+  fail: msg="Docker requires a 64bit system architecture"
+  when: "ansible_architecture != 'x86_64'"
+  tags: [docker,check]
+
+- include: Debian.yml
+  when: ansible_os_family == "Debian"
+  tags: [docker,packages]
+
+- name: Ensure docker-py and pip packages are present
+  pip: name=docker-py,python-pip state=present
+  tags: [docker,packages]
+
+- name: restart docker
+  service: name=docker state=started enabled=yes
+  tags: [docker,service]

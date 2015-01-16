@@ -1,0 +1,10 @@
+---
+- name: Ensure docker apt key is present
+  apt_key: url=https://get.docker.io/gpg state=present 
+
+- name: Ensure docker repository is present
+  apt_repository: repo='deb http://get.docker.io/ubuntu docker main' state=present
+
+- name: Ensure docker package is present
+  apt: name=lxc-docker state=present
+  notify: restart docker
