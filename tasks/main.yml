@@ -9,7 +9,7 @@
   tags: [docker,packages]
 
 - name: Ensure docker-py and pip packages are present
-  pip: name=docker-py,python-pip state=present
+  pip: name=docker-py state=present
   tags: [docker,packages]
 
 - name: restart docker
