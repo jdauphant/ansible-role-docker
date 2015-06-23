@@ -8,6 +8,10 @@
   when: ansible_os_family == "Debian"
   tags: [docker,packages]
 
+- name: Ensure pip is installed
+  easy_install: name=pip
+  tags: [docker,packages]
+
 - name: Ensure docker-py and pip packages are present
   pip: name=docker-py state=present
   tags: [docker,packages]
