@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Julien DAUPHANT
-  description: Ansible role to install Docker 
+  description: Ansible role to install Docker
   license: ISC
   min_ansible_version: 1.8.2
   platforms:
